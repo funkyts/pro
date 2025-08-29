@@ -72,8 +72,6 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
         }
 
         .main-cta:hover {
@@ -161,6 +159,7 @@
             background: linear-gradient(135deg, var(--secondary-color), var(--success-color));
             border-radius: 4px;
             transition: width 0.5s ease;
+            width: 11.11%;
         }
 
         .question-title {
@@ -394,7 +393,7 @@
             }
 
             .form-group input {
-                font-size: 16px; /* iOS 줌 방지 */
+                font-size: 16px;
             }
         }
 
@@ -431,7 +430,7 @@
                 <div class="header-section">
                     <h1>고객이 나를 찾을 확률은 몇%?</h1>
                     <p class="subtitle">3분 진단으로 알아보는 나의 온라인 발견율 + AI 마케팅 성숙도</p>
-                    <button class="main-cta" onclick="startDiagnosis()">무료 진단 시작하기</button>
+                    <button class="main-cta" id="startBtn">무료 진단 시작하기</button>
                 </div>
 
                 <div class="trust-section">
@@ -462,16 +461,16 @@
                 <div class="question-container active" data-question="1">
                     <h2 class="question-title">고객이 당신을 온라인에서 검색한다면?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(1, 'A', 40)">
+                        <div class="answer-option" data-question="1" data-answer="A" data-score="40">
                             내 이름으로 검색하면 1페이지에 나온다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(1, 'B', 25)">
+                        <div class="answer-option" data-question="1" data-answer="B" data-score="25">
                             2-3페이지 안에는 찾을 수 있다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(1, 'C', 10)">
+                        <div class="answer-option" data-question="1" data-answer="C" data-score="10">
                             찾기는 어렵지만 어딘가에 있다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(1, 'D', 0)">
+                        <div class="answer-option" data-question="1" data-answer="D" data-score="0">
                             거의 나오지 않거나 전혀 없다
                         </div>
                     </div>
@@ -480,16 +479,16 @@
                 <div class="question-container" data-question="2">
                     <h2 class="question-title">최근 6개월간 온라인 콘텐츠 활동량은?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(2, 'A', 35)">
+                        <div class="answer-option" data-question="2" data-answer="A" data-score="35">
                             주 3회 이상 꾸준히 올린다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(2, 'B', 25)">
+                        <div class="answer-option" data-question="2" data-answer="B" data-score="25">
                             주 1-2회 정도 올린다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(2, 'C', 10)">
+                        <div class="answer-option" data-question="2" data-answer="C" data-score="10">
                             월 1-2회 정도 올린다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(2, 'D', 0)">
+                        <div class="answer-option" data-question="2" data-answer="D" data-score="0">
                             거의 올리지 않는다
                         </div>
                     </div>
@@ -498,16 +497,16 @@
                 <div class="question-container" data-question="3">
                     <h2 class="question-title">새로운 고객이 나를 알게 되는 주된 경로는?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(3, 'A', 30)">
+                        <div class="answer-option" data-question="3" data-answer="A" data-score="30">
                             온라인 검색이나 SNS를 통해서
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(3, 'B', 20)">
+                        <div class="answer-option" data-question="3" data-answer="B" data-score="20">
                             기존 고객의 추천으로
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(3, 'C', 10)">
+                        <div class="answer-option" data-question="3" data-answer="C" data-score="10">
                             지인의 소개로
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(3, 'D', 5)">
+                        <div class="answer-option" data-question="3" data-answer="D" data-score="5">
                             오프라인 광고나 간판을 보고
                         </div>
                     </div>
@@ -516,16 +515,16 @@
                 <div class="question-container" data-question="4">
                     <h2 class="question-title">현재 마케팅에 투입하는 시간은 하루 평균 얼마나?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(4, 'A', 25)">
+                        <div class="answer-option" data-question="4" data-answer="A" data-score="25">
                             30분 이내로 효율적으로 관리
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(4, 'B', 15)">
+                        <div class="answer-option" data-question="4" data-answer="B" data-score="15">
                             1시간 정도 투입한다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(4, 'C', 5)">
+                        <div class="answer-option" data-question="4" data-answer="C" data-score="5">
                             2시간 이상 많은 시간을 쓴다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(4, 'D', 0)">
+                        <div class="answer-option" data-question="4" data-answer="D" data-score="0">
                             거의 시간을 쓰지 않는다
                         </div>
                     </div>
@@ -534,16 +533,16 @@
                 <div class="question-container" data-question="5">
                     <h2 class="question-title">마케팅 관련 가장 큰 고민은?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(5, 'A', 0, '뭘 해야 할지 모르겠다')">
+                        <div class="answer-option" data-question="5" data-answer="A" data-score="0" data-desc="뭘 해야 할지 모르겠다">
                             뭘 해야 할지 모르겠다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(5, 'B', 0, '시간이 너무 많이 걸린다')">
+                        <div class="answer-option" data-question="5" data-answer="B" data-score="0" data-desc="시간이 너무 많이 걸린다">
                             시간이 너무 많이 걸린다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(5, 'C', 0, '비용 대비 효과가 부족하다')">
+                        <div class="answer-option" data-question="5" data-answer="C" data-score="0" data-desc="비용 대비 효과가 부족하다">
                             비용 대비 효과가 부족하다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(5, 'D', 0, '직원이 잘 못해서 답답하다')">
+                        <div class="answer-option" data-question="5" data-answer="D" data-score="0" data-desc="직원이 잘 못해서 답답하다">
                             직원이 잘 못해서 답답하다
                         </div>
                     </div>
@@ -552,16 +551,16 @@
                 <div class="question-container" data-question="6">
                     <h2 class="question-title">콘텐츠를 만들 때 가장 어려운 부분은?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(6, 'A', 0, '무엇을 써야 할지 소재 찾기')">
+                        <div class="answer-option" data-question="6" data-answer="A" data-score="0" data-desc="무엇을 써야 할지 소재 찾기">
                             무엇을 써야 할지 소재 찾기
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(6, 'B', 0, '글쓰기 자체가 어렵다')">
+                        <div class="answer-option" data-question="6" data-answer="B" data-score="0" data-desc="글쓰기 자체가 어렵다">
                             글쓰기 자체가 어렵다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(6, 'C', 0, '편집이나 디자인 작업')">
+                        <div class="answer-option" data-question="6" data-answer="C" data-score="0" data-desc="편집이나 디자인 작업">
                             편집이나 디자인 작업
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(6, 'D', 0, '여러 곳에 올리고 관리하기')">
+                        <div class="answer-option" data-question="6" data-answer="D" data-score="0" data-desc="여러 곳에 올리고 관리하기">
                             여러 곳에 올리고 관리하기
                         </div>
                     </div>
@@ -570,16 +569,16 @@
                 <div class="question-container" data-question="7">
                     <h2 class="question-title">AI 도구(ChatGPT 등) 사용 경험은?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(7, 'A', 30)">
+                        <div class="answer-option" data-question="7" data-answer="A" data-score="30">
                             업무에 적극적으로 활용하고 있다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(7, 'B', 20)">
+                        <div class="answer-option" data-question="7" data-answer="B" data-score="20">
                             가끔 써보거나 시도해봤다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(7, 'C', 10)">
+                        <div class="answer-option" data-question="7" data-answer="C" data-score="10">
                             알고는 있지만 써보지 않았다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(7, 'D', 0)">
+                        <div class="answer-option" data-question="7" data-answer="D" data-score="0">
                             전혀 모르거나 관심 없다
                         </div>
                     </div>
@@ -588,16 +587,16 @@
                 <div class="question-container" data-question="8">
                     <h2 class="question-title">이상적으로 원하는 마케팅 시스템은?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(8, 'A', 25)">
+                        <div class="answer-option" data-question="8" data-answer="A" data-score="25">
                             최소한의 관리만으로 자동 운영
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(8, 'B', 15)">
+                        <div class="answer-option" data-question="8" data-answer="B" data-score="15">
                             직원이 체계적으로 관리
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(8, 'C', 5)">
+                        <div class="answer-option" data-question="8" data-answer="C" data-score="5">
                             전문 업체에 완전히 맡기기
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(8, 'D', 0)">
+                        <div class="answer-option" data-question="8" data-answer="D" data-score="0">
                             지금처럼 그때그때 대응
                         </div>
                     </div>
@@ -606,16 +605,16 @@
                 <div class="question-container" data-question="9">
                     <h2 class="question-title">새로운 기술이나 도구 도입에 대한 성향은?</h2>
                     <div class="answer-options">
-                        <div class="answer-option" onclick="selectAnswer(9, 'A', 20)">
+                        <div class="answer-option" data-question="9" data-answer="A" data-score="20">
                             도움이 된다면 적극적으로 시도한다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(9, 'B', 15)">
+                        <div class="answer-option" data-question="9" data-answer="B" data-score="15">
                             검증된 후에 신중하게 도입한다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(9, 'C', 5)">
+                        <div class="answer-option" data-question="9" data-answer="C" data-score="5">
                             꼭 필요한 경우에만 고려한다
                         </div>
-                        <div class="answer-option" onclick="selectAnswer(9, 'D', 0)">
+                        <div class="answer-option" data-question="9" data-answer="D" data-score="0">
                             가급적이면 기존 방식을 유지한다
                         </div>
                     </div>
@@ -624,7 +623,7 @@
 
             <!-- 결과 페이지 -->
             <div id="resultContainer" class="result-container">
-                <h2 class="result-title">진단 결과 발표!</h2>
+                <h2 class="result-title">🎯 진단 결과 발표!</h2>
                 
                 <div class="result-chart-container">
                     <canvas id="resultChart" width="600" height="300"></canvas>
@@ -646,7 +645,7 @@
                 </div>
 
                 <div class="lead-generation-section">
-                    <h3>더 자세한 실행 방법이 궁금하다면?</h3>
+                    <h3>🎁 더 자세한 실행 방법이 궁금하다면?</h3>
                     
                     <div class="ebook-preview">
                         <p><strong>"1%전문직의 AI 마케팅 시크릿"</strong> 전자책에서</p>
@@ -695,459 +694,524 @@
         </div>
     </div>
 
-    <script>
-        // 전역 변수
-        let currentQuestion = 1;
-        let answers = [];
-        let results = {};
+<script>
+// 전역 변수
+let currentQuestion = 1;
+let answers = [];
+let results = {};
 
-        // 구글 시트 URL (실제 사용시 교체 필요)
-        const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-        const KAKAO_CHANNEL_URL = 'http://pf.kakao.com/_your_channel_id/chat';
+// 구글 시트 URL (실제 사용시 교체 필요)
+const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+const KAKAO_CHANNEL_URL = 'http://pf.kakao.com/_your_channel_id/chat';
 
-        // 페이지 로드시 참여자 수 애니메이션
-        document.addEventListener('DOMContentLoaded', function() {
-            animateParticipantCount();
+// DOM이 로드된 후 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('페이지 로드 완료');
+    
+    // 참여자 수 애니메이션 시작
+    animateParticipantCount();
+    
+    // 시작 버튼 이벤트 리스너
+    document.getElementById('startBtn').addEventListener('click', function() {
+        console.log('진단 시작 버튼 클릭됨');
+        startDiagnosis();
+    });
+    
+    // 답변 선택 이벤트 리스너들
+    document.querySelectorAll('.answer-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const questionNum = parseInt(this.getAttribute('data-question'));
+            const answer = this.getAttribute('data-answer');
+            const score = parseInt(this.getAttribute('data-score'));
+            const desc = this.getAttribute('data-desc') || this.textContent.trim();
+            
+            selectAnswer(questionNum, answer, score, desc);
         });
+    });
+    
+    // 폼 제출 이벤트 리스너
+    document.getElementById('leadForm').addEventListener('submit', handleFormSubmit);
+});
 
-        // 참여자 수 카운트업 애니메이션
-        function animateParticipantCount() {
-            const countElement = document.getElementById('participantCount');
-            const startValue = 450;
-            const endValue = 485;
-            const duration = 2000;
-            const increment = (endValue - startValue) / (duration / 50);
-            
-            let currentValue = startValue;
-            
-            const counter = setInterval(() => {
-                currentValue += increment;
-                if (currentValue >= endValue) {
-                    currentValue = endValue;
-                    clearInterval(counter);
-                }
-                countElement.textContent = Math.floor(currentValue);
-            }, 50);
+// 참여자 수 카운트업 애니메이션
+function animateParticipantCount() {
+    const countElement = document.getElementById('participantCount');
+    if (!countElement) return;
+    
+    const startValue = 450;
+    const endValue = 485;
+    const duration = 2000;
+    const increment = (endValue - startValue) / (duration / 50);
+    
+    let currentValue = startValue;
+    
+    const counter = setInterval(() => {
+        currentValue += increment;
+        if (currentValue >= endValue) {
+            currentValue = endValue;
+            clearInterval(counter);
         }
+        countElement.textContent = Math.floor(currentValue);
+    }, 50);
+}
 
-        // 진단 시작
-        function startDiagnosis() {
-            document.getElementById('landingPage').style.display = 'none';
-            document.getElementById('diagnosisContainer').style.display = 'block';
-            
-            // 첫 번째 질문 활성화 확인
-            const firstQuestion = document.querySelector('[data-question="1"]');
-            if (firstQuestion) {
-                firstQuestion.classList.add('active');
-            }
-            
-            // 진행률 초기화
-            currentQuestion = 1;
-            updateProgress();
+// 진단 시작
+function startDiagnosis() {
+    console.log('진단 시작 중...');
+    document.getElementById('landingPage').style.display = 'none';
+    document.getElementById('diagnosisContainer').style.display = 'block';
+    
+    // 첫 번째 질문 활성화 확인
+    const firstQuestion = document.querySelector('[data-question="1"]');
+    if (firstQuestion) {
+        firstQuestion.classList.add('active');
+    }
+    
+    // 진행률 초기화
+    currentQuestion = 1;
+    updateProgress();
+}
+
+// 답변 선택
+function selectAnswer(questionNumber, answer, score, description) {
+    console.log(`질문 ${questionNumber} 답변: ${answer}, 점수: ${score}`);
+    
+    // 기존 선택 해제
+    const currentContainer = document.querySelector(`[data-question="${questionNumber}"]`);
+    const options = currentContainer.querySelectorAll('.answer-option');
+    options.forEach(opt => opt.classList.remove('selected'));
+
+    // 새 선택 표시
+    event.target.classList.add('selected');
+
+    // 답변 저장
+    answers[questionNumber - 1] = {
+        question: questionNumber,
+        answer: answer,
+        score: score,
+        description: description
+    };
+
+    // 다음 질문으로 이동
+    setTimeout(() => {
+        nextQuestion();
+    }, 500);
+}
+
+// 다음 질문
+function nextQuestion() {
+    const currentContainer = document.querySelector(`[data-question="${currentQuestion}"]`);
+    if (currentContainer) {
+        currentContainer.classList.remove('active');
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion <= 9) {
+        const nextContainer = document.querySelector(`[data-question="${currentQuestion}"]`);
+        if (nextContainer) {
+            nextContainer.classList.add('active');
         }
+        updateProgress();
+    } else {
+        // 결과 계산 및 표시
+        calculateResults();
+        showResults();
+    }
+}
 
-        // 답변 선택
-        function selectAnswer(questionNumber, answer, score, description = '') {
-            // 기존 선택 해제
-            const currentContainer = document.querySelector(`[data-question="${questionNumber}"]`);
-            const options = currentContainer.querySelectorAll('.answer-option');
-            options.forEach(opt => opt.classList.remove('selected'));
+// 진행률 업데이트
+function updateProgress() {
+    const progress = (currentQuestion / 9) * 100;
+    const progressFill = document.getElementById('progressFill');
+    if (progressFill) {
+        progressFill.style.width = progress + '%';
+    }
+}
 
-            // 새 선택 표시
-            event.target.classList.add('selected');
+// 결과 계산
+function calculateResults() {
+    const phase1Score = answers.slice(0, 3).reduce((sum, answer) => sum + answer.score, 0);
+    const phase2Score = answers.slice(3, 6).reduce((sum, answer) => sum + answer.score, 0);
+    const phase3Score = answers.slice(6, 9).reduce((sum, answer) => sum + answer.score, 0);
+    
+    // 현재 발견율 계산 (최대 90%로 제한)
+    let currentDiscoveryRate = Math.min(90, Math.round((phase1Score / 105) * 100 * 0.9));
+    currentDiscoveryRate = Math.max(5, currentDiscoveryRate); // 최소 5%
+    
+    // AI 활용 후 예상 발견율
+    const aiBoostValue = Math.round((phase2Score + phase3Score) / 150 * 60 + 20);
+    let expectedRate = Math.min(98, currentDiscoveryRate + aiBoostValue);
+    expectedRate = Math.max(currentDiscoveryRate + 15, expectedRate); // 최소 15% 개선
+    
+    // 사용자 타입 결정
+    const userType = determineUserType(phase1Score, phase2Score, phase3Score);
+    
+    results = {
+        currentRate: currentDiscoveryRate,
+        expectedRate: expectedRate,
+        improvement: expectedRate - currentDiscoveryRate,
+        userType: userType,
+        phase1Score,
+        phase2Score,
+        phase3Score
+    };
+    
+    console.log('결과 계산 완료:', results);
+}
 
-            // 답변 저장
-            answers[questionNumber - 1] = {
-                question: questionNumber,
-                answer: answer,
-                score: score,
-                description: description || event.target.textContent.trim()
-            };
+// 사용자 타입 결정
+function determineUserType(phase1, phase2, phase3) {
+    if (phase1 < 30 && (phase2 + phase3) > 60) return "숨은고수형";
+    if (phase1 >= 30 && phase1 <= 60 && phase2 < 30) return "비효율투입형";
+    if (phase1 > 60 && phase1 <= 90) return "부분성과형";
+    if (phase1 > 90 && phase3 > 40) return "AI준비완료형";
+    return "숨은고수형"; // 기본값
+}
 
-            // 다음 질문으로 이동
-            setTimeout(() => {
-                nextQuestion();
-            }, 500);
+// 결과 표시
+function showResults() {
+    document.getElementById('diagnosisContainer').style.display = 'none';
+    document.getElementById('resultContainer').style.display = 'block';
+    
+    // 그래프 생성
+    createResultChart(results.currentRate, results.expectedRate);
+    
+    // 타입별 내용 설정
+    setUserTypeContent(results.userType);
+    
+    // 맞춤형 개선 포인트 설정
+    setImprovementPoints();
+    
+    // 개인 로드맵 설정
+    setPersonalRoadmap();
+}
+
+// 결과 차트 생성
+function createResultChart(currentRate, expectedRate) {
+    const canvas = document.getElementById('resultChart');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    
+    // 캔버스 크기 설정
+    const isDesktop = window.innerWidth > 768;
+    canvas.width = isDesktop ? 600 : 350;
+    canvas.height = 300;
+    
+    // 캔버스 클리어
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // 원형 진행바 그리기 함수
+    function drawCircularProgress(rate, color, centerX, label) {
+        const centerY = canvas.height / 2 - 20;
+        const radius = isDesktop ? 70 : 50;
+        
+        // 배경 원
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#e0e0e0';
+        ctx.lineWidth = 8;
+        ctx.stroke();
+        
+        // 진행률 원
+        const angle = (rate / 100) * 2 * Math.PI - Math.PI / 2;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, -Math.PI / 2, angle);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 8;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+        
+        // 중앙 텍스트
+        ctx.fillStyle = color;
+        ctx.font = `bold ${isDesktop ? 28 : 20}px Arial`;
+        ctx.textAlign = 'center';
+        ctx.fillText(rate + '%', centerX, centerY + 8);
+        
+        // 라벨
+        ctx.fillStyle = '#2c3e50';
+        ctx.font = `${isDesktop ? 16 : 14}px Arial`;
+        ctx.fillText(label, centerX, centerY + radius + 25);
+    }
+    
+    // 현재 발견율 (왼쪽)
+    drawCircularProgress(currentRate, '#e74c3c', canvas.width / 4, '현재');
+    
+    // 예상 발견율 (오른쪽)
+    drawCircularProgress(expectedRate, '#27ae60', (canvas.width / 4) * 3, 'AI 활용 후');
+    
+    // 상승 화살표 및 개선폭
+    const improvement = expectedRate - currentRate;
+    ctx.fillStyle = '#f39c12';
+    ctx.font = `bold ${isDesktop ? 20 : 16}px Arial`;
+    ctx.textAlign = 'center';
+    ctx.fillText(`+${improvement}%`, canvas.width / 2, canvas.height / 2 - 50);
+    ctx.font = `${isDesktop ? 14 : 12}px Arial`;
+    ctx.fillText('상승 가능', canvas.width / 2, canvas.height / 2 - 30);
+}
+
+// 사용자 타입별 내용 설정
+function setUserTypeContent(userType) {
+    const typeData = {
+        "숨은고수형": {
+            icon: "🔴",
+            title: "숨은 고수형",
+            description: "실력은 뛰어나지만 온라인에서 찾기 어려운 상태입니다. 당신의 전문성을 세상이 모르고 있어요. AI가 당신을 알리는 가장 빠른 방법입니다."
+        },
+        "비효율투입형": {
+            icon: "🟡",
+            title: "비효율 투입형",
+            description: "많은 시간과 비용을 투입하지만 효과가 제한적인 상태입니다. 지금 투입하는 시간과 비용의 절반으로 두 배 효과를 낼 수 있습니다."
+        },
+        "부분성과형": {
+            icon: "🟠",
+            title: "부분 성과형",
+            description: "어느 정도 성과는 있지만 체계적이지 못한 상태입니다. 이미 좋은 기반이 있습니다. AI로 체계화하면 업계 Top 3에 들 수 있어요."
+        },
+        "AI준비완료형": {
+            icon: "🟢",
+            title: "AI 준비완료형",
+            description: "기본기가 탄탄하고 AI 도구만 활용하면 되는 상태입니다. 업계 최고가 될 모든 준비가 되어 있습니다. AI가 마지막 퍼즐 조각입니다."
         }
+    };
 
-        // 다음 질문
-        function nextQuestion() {
-            const currentContainer = document.querySelector(`[data-question="${currentQuestion}"]`);
-            currentContainer.classList.remove('active');
+    const data = typeData[userType];
+    const titleElement = document.getElementById('userTypeTitle');
+    const descElement = document.getElementById('userTypeDescription');
+    
+    if (titleElement) titleElement.textContent = `당신은 ${data.icon} ${data.title}입니다`;
+    if (descElement) descElement.textContent = data.description;
+}
 
-            currentQuestion++;
+// 개선 포인트 설정
+function setImprovementPoints() {
+    const q5Answer = answers[4]?.description || '';
+    const q6Answer = answers[5]?.description || '';
+    
+    const improvementMap = {
+        '뭘 해야 할지 모르겠다': ['AI 도구로 키워드 조사부터 시작', '블로그 글 작성 자동화', '체계적인 콘텐츠 계획 수립'],
+        '시간이 너무 많이 걸린다': ['콘텐츠 제작 시간 90% 단축', '자동 배포 시스템 구축', '템플릿 활용으로 효율화'],
+        '비용 대비 효과가 부족하다': ['광고비 없이 자연 유입 증가', 'ROI 추적 가능한 시스템', '장기적 브랜딩 자산 구축'],
+        '직원이 잘 못해서 답답하다': ['직원도 쉽게 따라할 수 있는 시스템', 'AI 도구로 품질 표준화', '체크리스트 기반 운영']
+    };
 
-            if (currentQuestion <= 9) {
-                const nextContainer = document.querySelector(`[data-question="${currentQuestion}"]`);
-                nextContainer.classList.add('active');
-                updateProgress();
-            } else {
-                // 결과 계산 및 표시
-                calculateResults();
-                showResults();
-            }
-        }
+    const contentMap = {
+        '무엇을 써야 할지 소재 찾기': ['AI로 무한 아이디어 생성', '고객 질문 기반 콘텐츠 제작', '경쟁사 분석 자동화'],
+        '글쓰기 자체가 어렵다': ['AI 초안 생성 후 개인화', '전문성 어필 템플릿 활용', '구어체 변환으로 친근감 증대'],
+        '편집이나 디자인 작업': ['AI 디자인 툴 활용법', '카드뉴스 자동 생성', '브랜드 통일성 유지 시스템'],
+        '여러 곳에 올리고 관리하기': ['원클릭 다중 플랫폼 배포', '예약 발행으로 자동화', '통합 분석 대시보드 구축']
+    };
 
-        // 진행률 업데이트
-        function updateProgress() {
-            const progress = (currentQuestion / 9) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-        }
+    let improvements = [];
+    
+    // Q5 기반 개선 포인트
+    if (improvementMap[q5Answer]) {
+        improvements.push(...improvementMap[q5Answer]);
+    }
+    
+    // Q6 기반 개선 포인트
+    if (contentMap[q6Answer] && improvements.length < 5) {
+        improvements.push(...contentMap[q6Answer].slice(0, 5 - improvements.length));
+    }
+    
+    // 기본 개선 포인트
+    if (improvements.length === 0) {
+        improvements = [
+            'AI 블로그 글쓰기로 검색 노출 증대',
+            '영상 제작 자동화로 신뢰도 구축', 
+            '고객 DB 수집 시스템 구축'
+        ];
+    }
 
-        // 결과 계산
-        function calculateResults() {
-            const phase1Score = answers.slice(0, 3).reduce((sum, answer) => sum + answer.score, 0);
-            const phase2Score = answers.slice(3, 6).reduce((sum, answer) => sum + answer.score, 0);
-            const phase3Score = answers.slice(6, 9).reduce((sum, answer) => sum + answer.score, 0);
-            
-            // 현재 발견율 계산 (최대 90%로 제한)
-            const currentDiscoveryRate = Math.min(90, Math.round((phase1Score / 105) * 100 * 0.9));
-            
-            // AI 활용 후 예상 발견율
-            const aiBoostValue = Math.round((phase2Score + phase3Score) / 150 * 60 + 20);
-            const expectedRate = Math.min(98, currentDiscoveryRate + aiBoostValue);
-            
-            // 사용자 타입 결정
-            const userType = determineUserType(phase1Score, phase2Score, phase3Score);
-            
-            results = {
-                currentRate: Math.max(5, currentDiscoveryRate), // 최소 5%
-                expectedRate: Math.max(results.currentRate + 15, expectedRate), // 최소 15% 개선
-                improvement: Math.max(15, expectedRate - currentDiscoveryRate),
-                userType: userType,
-                phase1Score,
-                phase2Score,
-                phase3Score
-            };
-        }
-
-        // 사용자 타입 결정
-        function determineUserType(phase1, phase2, phase3) {
-            if (phase1 < 30 && (phase2 + phase3) > 60) return "숨은고수형";
-            if (phase1 >= 30 && phase1 <= 60 && phase2 < 30) return "비효율투입형";
-            if (phase1 > 60 && phase1 <= 90) return "부분성과형";
-            if (phase1 > 90 && phase3 > 40) return "AI준비완료형";
-            return "숨은고수형"; // 기본값
-        }
-
-        // 결과 표시
-        function showResults() {
-            document.getElementById('diagnosisContainer').style.display = 'none';
-            document.getElementById('resultContainer').style.display = 'block';
-            
-            // 그래프 생성
-            createResultChart(results.currentRate, results.expectedRate);
-            
-            // 타입별 내용 설정
-            setUserTypeContent(results.userType);
-            
-            // 맞춤형 개선 포인트 설정
-            setImprovementPoints();
-            
-            // 개인 로드맵 설정
-            setPersonalRoadmap();
-        }
-
-        // 결과 차트 생성
-        function createResultChart(currentRate, expectedRate) {
-            const canvas = document.getElementById('resultChart');
-            const ctx = canvas.getContext('2d');
-            
-            // 캔버스 크기 설정
-            const isDesktop = window.innerWidth > 768;
-            canvas.width = isDesktop ? 600 : 350;
-            canvas.height = 300;
-            
-            // 캔버스 클리어
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // 원형 진행바 그리기 함수
-            function drawCircularProgress(rate, color, centerX, label) {
-                const centerY = canvas.height / 2 - 20;
-                const radius = isDesktop ? 70 : 50;
-                
-                // 배경 원
-                ctx.beginPath();
-                ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-                ctx.strokeStyle = '#e0e0e0';
-                ctx.lineWidth = 8;
-                ctx.stroke();
-                
-                // 진행률 원
-                const angle = (rate / 100) * 2 * Math.PI - Math.PI / 2;
-                ctx.beginPath();
-                ctx.arc(centerX, centerY, radius, -Math.PI / 2, angle);
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 8;
-                ctx.lineCap = 'round';
-                ctx.stroke();
-                
-                // 중앙 텍스트
-                ctx.fillStyle = color;
-                ctx.font = `bold ${isDesktop ? 28 : 20}px Arial`;
-                ctx.textAlign = 'center';
-                ctx.fillText(rate + '%', centerX, centerY + 8);
-                
-                // 라벨
-                ctx.fillStyle = '#2c3e50';
-                ctx.font = `${isDesktop ? 16 : 14}px Arial`;
-                ctx.fillText(label, centerX, centerY + radius + 25);
-            }
-            
-            // 현재 발견율 (왼쪽)
-            drawCircularProgress(currentRate, '#e74c3c', canvas.width / 4, '현재');
-            
-            // 예상 발견율 (오른쪽)
-            drawCircularProgress(expectedRate, '#27ae60', (canvas.width / 4) * 3, 'AI 활용 후');
-            
-            // 상승 화살표 및 개선폭
-            const improvement = expectedRate - currentRate;
-            ctx.fillStyle = '#f39c12';
-            ctx.font = `bold ${isDesktop ? 20 : 16}px Arial`;
-            ctx.textAlign = 'center';
-            ctx.fillText(`+${improvement}%`, canvas.width / 2, canvas.height / 2 - 50);
-            ctx.font = `${isDesktop ? 14 : 12}px Arial`;
-            ctx.fillText('상승 가능', canvas.width / 2, canvas.height / 2 - 30);
-        }
-
-        // 사용자 타입별 내용 설정
-        function setUserTypeContent(userType) {
-            const typeData = {
-                "숨은고수형": {
-                    icon: "🔴",
-                    title: "숨은 고수형",
-                    description: "실력은 뛰어나지만 온라인에서 찾기 어려운 상태입니다. 당신의 전문성을 세상이 모르고 있어요. AI가 당신을 알리는 가장 빠른 방법입니다."
-                },
-                "비효율투입형": {
-                    icon: "🟡",
-                    title: "비효율 투입형",
-                    description: "많은 시간과 비용을 투입하지만 효과가 제한적인 상태입니다. 지금 투입하는 시간과 비용의 절반으로 두 배 효과를 낼 수 있습니다."
-                },
-                "부분성과형": {
-                    icon: "🟠",
-                    title: "부분 성과형",
-                    description: "어느 정도 성과는 있지만 체계적이지 못한 상태입니다. 이미 좋은 기반이 있습니다. AI로 체계화하면 업계 Top 3에 들 수 있어요."
-                },
-                "AI준비완료형": {
-                    icon: "🟢",
-                    title: "AI 준비완료형",
-                    description: "기본기가 탄탄하고 AI 도구만 활용하면 되는 상태입니다. 업계 최고가 될 모든 준비가 되어 있습니다. AI가 마지막 퍼즐 조각입니다."
-                }
-            };
-
-            const data = typeData[userType];
-            document.getElementById('userTypeTitle').textContent = `당신은 ${data.icon} ${data.title}입니다`;
-            document.getElementById('userTypeDescription').textContent = data.description;
-        }
-
-        // 개선 포인트 설정
-        function setImprovementPoints() {
-            const q5Answer = answers[4]?.description || '';
-            const q6Answer = answers[5]?.description || '';
-            
-            const improvementMap = {
-                '뭘 해야 할지 모르겠다': ['AI 도구로 키워드 조사부터 시작', '블로그 글 작성 자동화', '체계적인 콘텐츠 계획 수립'],
-                '시간이 너무 많이 걸린다': ['콘텐츠 제작 시간 90% 단축', '자동 배포 시스템 구축', '템플릿 활용으로 효율화'],
-                '비용 대비 효과가 부족하다': ['광고비 없이 자연 유입 증가', 'ROI 추적 가능한 시스템', '장기적 브랜딩 자산 구축'],
-                '직원이 잘 못해서 답답하다': ['직원도 쉽게 따라할 수 있는 시스템', 'AI 도구로 품질 표준화', '체크리스트 기반 운영']
-            };
-
-            const contentMap = {
-                '무엇을 써야 할지 소재 찾기': ['AI로 무한 아이디어 생성', '고객 질문 기반 콘텐츠 제작', '경쟁사 분석 자동화'],
-                '글쓰기 자체가 어렵다': ['AI 초안 생성 후 개인화', '전문성 어필 템플릿 활용', '구어체 변환으로 친근감 증대'],
-                '편집이나 디자인 작업': ['AI 디자인 툴 활용법', '카드뉴스 자동 생성', '브랜드 통일성 유지 시스템'],
-                '여러 곳에 올리고 관리하기': ['원클릭 다중 플랫폼 배포', '예약 발행으로 자동화', '통합 분석 대시보드 구축']
-            };
-
-            let improvements = [];
-            
-            // Q5 기반 개선 포인트
-            if (improvementMap[q5Answer]) {
-                improvements.push(...improvementMap[q5Answer]);
-            }
-            
-            // Q6 기반 개선 포인트
-            if (contentMap[q6Answer] && improvements.length < 5) {
-                improvements.push(...contentMap[q6Answer].slice(0, 5 - improvements.length));
-            }
-            
-            // 기본 개선 포인트
-            if (improvements.length === 0) {
-                improvements = [
-                    'AI 블로그 글쓰기로 검색 노출 증대',
-                    '영상 제작 자동화로 신뢰도 구축', 
-                    '고객 DB 수집 시스템 구축'
-                ];
-            }
-
-            const improvementList = document.getElementById('improvementPoints');
-            improvementList.innerHTML = '';
-            improvements.forEach(point => {
-                const li = document.createElement('li');
-                li.textContent = '• ' + point;
-                improvementList.appendChild(li);
-            });
-        }
-
-        // 개인 로드맵 설정
-        function setPersonalRoadmap() {
-            const roadmapData = {
-                "숨은고수형": {
-                    step1: { title: "1순위: AI 블로그 글쓰기", desc: "전문성을 담은 콘텐츠로 검색 노출 시작" },
-                    step2: { title: "2순위: 소셜미디어 자동화", desc: "여러 플랫폼 동시 운영으로 인지도 확산" },
-                    step3: { title: "3순위: 고객 유입 시스템", desc: "바이브 코딩으로 자동 상담 유도" }
-                },
-                "비효율투입형": {
-                    step1: { title: "1순위: 콘텐츠 제작 자동화", desc: "현재 시간의 1/10로 같은 결과 달성" },
-                    step2: { title: "2순위: 배포 시스템 최적화", desc: "원클릭으로 모든 채널 관리" },
-                    step3: { title: "3순위: 성과 측정 시스템", desc: "데이터 기반 전략 수정" }
-                },
-                "부분성과형": {
-                    step1: { title: "1순위: 기존 콘텐츠 체계화", desc: "산발적 활동을 전략적으로 정리" },
-                    step2: { title: "2순위: AI 도구 도입", desc: "품질과 양을 동시에 개선" },
-                    step3: { title: "3순위: 브랜딩 강화", desc: "일관된 메시지로 신뢰도 구축" }
-                },
-                "AI준비완료형": {
-                    step1: { title: "1순위: 고급 AI 활용", desc: "차별화된 콘텐츠로 경쟁우위 확보" },
-                    step2: { title: "2순위: 자동화 시스템 고도화", desc: "완전 자동 운영 시스템 구축" },
-                    step3: { title: "3순위: 업계 리더십 구축", desc: "사고 리더로서의 위치 확립" }
-                }
-            };
-
-            const roadmap = roadmapData[results.userType];
-            const roadmapContainer = document.getElementById('personalRoadmap');
-            
-            roadmapContainer.innerHTML = `
-                <div class="roadmap-step">
-                    <div class="roadmap-step-title">${roadmap.step1.title}</div>
-                    <div>${roadmap.step1.desc}</div>
-                </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-step-title">${roadmap.step2.title}</div>
-                    <div>${roadmap.step2.desc}</div>
-                </div>
-                <div class="roadmap-step">
-                    <div class="roadmap-step-title">${roadmap.step3.title}</div>
-                    <div>${roadmap.step3.desc}</div>
-                </div>
-            `;
-        }
-
-        // 폼 제출 처리
-        document.getElementById('leadForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            if (!validateForm()) return;
-            
-            const formData = new FormData(e.target);
-            const leadData = Object.fromEntries(formData.entries());
-            
-            // 진단 결과 데이터 추가
-            leadData.currentRate = results.currentRate;
-            leadData.expectedRate = results.expectedRate;
-            leadData.userType = results.userType;
-            leadData.improvement = results.improvement;
-            leadData.timestamp = new Date().toISOString();
-            
-            // 답변 데이터 추가
-            answers.forEach((answer, index) => {
-                leadData[`q${index + 1}_answer`] = answer.description;
-            });
-            
-            showLoading();
-            
-            const success = await submitToGoogleSheet(leadData);
-            
-            if (success) {
-                showSuccessMessage('전자책 발송 준비가 완료되었습니다! 곧 전문가 커뮤니티로 안내해드릴게요.');
-                
-                setTimeout(() => {
-                    window.location.href = KAKAO_CHANNEL_URL;
-                }, 2000);
-            } else {
-                showErrorMessage('잠시 문제가 발생했습니다. 다시 시도해주세요.');
-            }
+    const improvementList = document.getElementById('improvementPoints');
+    if (improvementList) {
+        improvementList.innerHTML = '';
+        improvements.forEach(point => {
+            const li = document.createElement('li');
+            li.textContent = '• ' + point;
+            improvementList.appendChild(li);
         });
+    }
+}
 
-        // 구글 시트 전송
-        async function submitToGoogleSheet(data) {
-            try {
-                const response = await fetch(GOOGLE_SHEET_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                return true;
-            } catch (error) {
-                console.error('Error submitting to Google Sheet:', error);
-                return false;
-            }
+// 개인 로드맵 설정
+function setPersonalRoadmap() {
+    const roadmapData = {
+        "숨은고수형": {
+            step1: { title: "1순위: AI 블로그 글쓰기", desc: "전문성을 담은 콘텐츠로 검색 노출 시작" },
+            step2: { title: "2순위: 소셜미디어 자동화", desc: "여러 플랫폼 동시 운영으로 인지도 확산" },
+            step3: { title: "3순위: 고객 유입 시스템", desc: "바이브 코딩으로 자동 상담 유도" }
+        },
+        "비효율투입형": {
+            step1: { title: "1순위: 콘텐츠 제작 자동화", desc: "현재 시간의 1/10로 같은 결과 달성" },
+            step2: { title: "2순위: 배포 시스템 최적화", desc: "원클릭으로 모든 채널 관리" },
+            step3: { title: "3순위: 성과 측정 시스템", desc: "데이터 기반 전략 수정" }
+        },
+        "부분성과형": {
+            step1: { title: "1순위: 기존 콘텐츠 체계화", desc: "산발적 활동을 전략적으로 정리" },
+            step2: { title: "2순위: AI 도구 도입", desc: "품질과 양을 동시에 개선" },
+            step3: { title: "3순위: 브랜딩 강화", desc: "일관된 메시지로 신뢰도 구축" }
+        },
+        "AI준비완료형": {
+            step1: { title: "1순위: 고급 AI 활용", desc: "차별화된 콘텐츠로 경쟁우위 확보" },
+            step2: { title: "2순위: 자동화 시스템 고도화", desc: "완전 자동 운영 시스템 구축" },
+            step3: { title: "3순위: 업계 리더십 구축", desc: "사고 리더로서의 위치 확립" }
         }
+    };
 
-        // 폼 유효성 검사
-        function validateForm() {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const profession = document.getElementById('profession').value.trim();
-            const location = document.getElementById('location').value.trim();
-            
-            if (name.length < 2) {
-                showErrorMessage('성함을 정확히 입력해주세요.');
-                return false;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showErrorMessage('이메일을 정확히 입력해주세요.');
-                return false;
-            }
-            
-            if (profession.length < 2 || profession.length > 20) {
-                showErrorMessage('전문직종을 정확히 입력해주세요. (2-20자)');
-                return false;
-            }
-            
-            if (location.length < 2) {
-                showErrorMessage('지역을 정확히 입력해주세요.');
-                return false;
-            }
-            
-            return true;
-        }
+    const roadmap = roadmapData[results.userType];
+    const roadmapContainer = document.getElementById('personalRoadmap');
+    
+    if (roadmapContainer && roadmap) {
+        roadmapContainer.innerHTML = `
+            <div class="roadmap-step">
+                <div class="roadmap-step-title">${roadmap.step1.title}</div>
+                <div>${roadmap.step1.desc}</div>
+            </div>
+            <div class="roadmap-step">
+                <div class="roadmap-step-title">${roadmap.step2.title}</div>
+                <div>${roadmap.step2.desc}</div>
+            </div>
+            <div class="roadmap-step">
+                <div class="roadmap-step-title">${roadmap.step3.title}</div>
+                <div>${roadmap.step3.desc}</div>
+            </div>
+        `;
+    }
+}
 
-        // 메시지 표시 함수들
-        function showLoading() {
-            hideAllMessages();
-            document.getElementById('loadingMessage').style.display = 'block';
-            document.querySelector('.main-cta-button').disabled = true;
-        }
+// 폼 제출 처리
+async function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+    
+    const formData = new FormData(e.target);
+    const leadData = Object.fromEntries(formData.entries());
+    
+    // 진단 결과 데이터 추가
+    leadData.currentRate = results.currentRate;
+    leadData.expectedRate = results.expectedRate;
+    leadData.userType = results.userType;
+    leadData.improvement = results.improvement;
+    leadData.timestamp = new Date().toISOString();
+    
+    // 답변 데이터 추가
+    answers.forEach((answer, index) => {
+        leadData[`q${index + 1}_answer`] = answer.description;
+    });
+    
+    showLoading();
+    
+    const success = await submitToGoogleSheet(leadData);
+    
+    if (success) {
+        showSuccessMessage('전자책 발송 준비가 완료되었습니다! 곧 전문가 커뮤니티로 안내해드릴게요.');
+        
+        setTimeout(() => {
+            window.location.href = KAKAO_CHANNEL_URL;
+        }, 2000);
+    } else {
+        showErrorMessage('잠시 문제가 발생했습니다. 다시 시도해주세요.');
+    }
+}
 
-        function showSuccessMessage(message) {
-            hideAllMessages();
-            document.getElementById('successMessage').textContent = message;
-            document.getElementById('successMessage').style.display = 'block';
-        }
-
-        function showErrorMessage(message) {
-            hideAllMessages();
-            document.getElementById('errorMessage').textContent = message;
-            document.getElementById('errorMessage').style.display = 'block';
-            document.querySelector('.main-cta-button').disabled = false;
-        }
-
-        function hideAllMessages() {
-            document.getElementById('loadingMessage').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'none';
-            document.getElementById('errorMessage').style.display = 'none';
-        }
-
-        // 반응형 차트 리사이즈
-        window.addEventListener('resize', function() {
-            if (results.currentRate && results.expectedRate) {
-                createResultChart(results.currentRate, results.expectedRate);
-            }
+// 구글 시트 전송
+async function submitToGoogleSheet(data) {
+    try {
+        const response = await fetch(GOOGLE_SHEET_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         });
+        
+        return true;
+    } catch (error) {
+        console.error('Error submitting to Google Sheet:', error);
+        return false;
+    }
+}
+
+// 폼 유효성 검사
+function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const profession = document.getElementById('profession').value.trim();
+    const location = document.getElementById('location').value.trim();
+    
+    if (name.length < 2) {
+        showErrorMessage('성함을 정확히 입력해주세요.');
+        return false;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showErrorMessage('이메일을 정확히 입력해주세요.');
+        return false;
+    }
+    
+    if (profession.length < 2 || profession.length > 20) {
+        showErrorMessage('전문직종을 정확히 입력해주세요. (2-20자)');
+        return false;
+    }
+    
+    if (location.length < 2) {
+        showErrorMessage('지역을 정확히 입력해주세요.');
+        return false;
+    }
+    
+    return true;
+}
+
+// 메시지 표시 함수들
+function showLoading() {
+    hideAllMessages();
+    const loadingMsg = document.getElementById('loadingMessage');
+    if (loadingMsg) loadingMsg.style.display = 'block';
+    
+    const submitBtn = document.querySelector('.main-cta-button');
+    if (submitBtn) submitBtn.disabled = true;
+}
+
+function showSuccessMessage(message) {
+    hideAllMessages();
+    const successMsg = document.getElementById('successMessage');
+    if (successMsg) {
+        successMsg.textContent = message;
+        successMsg.style.display = 'block';
+    }
+}
+
+function showErrorMessage(message) {
+    hideAllMessages();
+    const errorMsg = document.getElementById('errorMessage');
+    if (errorMsg) {
+        errorMsg.textContent = message;
+        errorMsg.style.display = 'block';
+    }
+    
+    const submitBtn = document.querySelector('.main-cta-button');
+    if (submitBtn) submitBtn.disabled = false;
+}
+
+function hideAllMessages() {
+    const messages = ['loadingMessage', 'successMessage', 'errorMessage'];
+    messages.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) element.style.display = 'none';
+    });
+}
+
+// 반응형 차트 리사이즈
+window.addEventListener('resize', function() {
+    if (results.currentRate && results.expectedRate) {
+        createResultChart(results.currentRate, results.expectedRate);
+    }
+});
+</script>
+</body>
+</html>
