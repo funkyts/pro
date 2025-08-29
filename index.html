@@ -732,8 +732,26 @@
 
         // 진단 시작
         function startDiagnosis() {
-            document.getElementById('landingPage').style.display = 'none';
-            document.getElementById('diagnosisContainer').style.display = 'block';
+            // 랜딩 페이지의 모든 섹션 숨기기
+            const landingContent = document.querySelector('.landing-content');
+            if (landingContent) {
+                landingContent.style.display = 'none';
+            }
+            
+            // 진단 컨테이너 보이기
+            const diagnosisContainer = document.getElementById('diagnosisContainer');
+            if (diagnosisContainer) {
+                diagnosisContainer.style.display = 'block';
+            }
+            
+            // 첫 번째 질문 활성화 확인
+            const firstQuestion = document.querySelector('[data-question="1"]');
+            if (firstQuestion) {
+                firstQuestion.classList.add('active');
+            }
+            
+            // 진행률 초기화
+            currentQuestion = 1;
             updateProgress();
         }
 
