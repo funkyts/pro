@@ -159,7 +159,7 @@
             background: linear-gradient(135deg, var(--secondary-color), var(--success-color));
             border-radius: 4px;
             transition: width 0.5s ease;
-            width: 11.11%;
+            width: 10%;
         }
 
         .question-title {
@@ -199,6 +199,30 @@
             display: none;
             padding: 40px;
             text-align: center;
+        }
+
+        .share-section {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .share-button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .share-button:hover {
+            background: #2980b9;
+            transform: translateY(-1px);
         }
 
         .result-title {
@@ -260,110 +284,34 @@
             background: var(--light-gray);
             padding: 40px;
             margin-top: 40px;
+            text-align: center;
         }
 
-        .ebook-preview {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        .ebook-preview ul {
-            list-style: none;
-            text-align: left;
-            max-width: 400px;
-            margin: 20px auto 0;
-        }
-
-        .ebook-preview li {
-            padding: 8px 0;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus {
-            border-color: var(--secondary-color);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-        }
-
-        .form-group small {
-            color: var(--dark-gray);
-            font-size: 14px;
-            margin-top: 4px;
-            display: block;
-        }
-
-        .main-cta-button {
-            width: 100%;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--success-color));
-            color: white;
-            border: none;
+        .kakao-link {
+            background: #FEE500;
+            color: #3C1E1E;
+            padding: 20px;
             border-radius: 12px;
+            text-decoration: none;
+            display: inline-block;
             font-size: 18px;
             font-weight: 600;
+            margin: 20px 0;
+            border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            margin-top: 20px;
         }
 
-        .main-cta-button:hover {
+        .kakao-link:hover {
+            background: #FFDB00;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 4px 15px rgba(254, 229, 0, 0.4);
         }
 
-        .main-cta-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        /* 로딩 및 메시지 */
-        .message {
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: center;
-            display: none;
-        }
-
-        .success-message {
-            background: rgba(39, 174, 96, 0.1);
-            border: 2px solid var(--success-color);
-            color: var(--success-color);
-        }
-
-        .error-message {
-            background: rgba(231, 76, 60, 0.1);
-            border: 2px solid var(--danger-color);
-            color: var(--danger-color);
-        }
-
-        .loading-message {
-            background: rgba(52, 152, 219, 0.1);
-            border: 2px solid var(--secondary-color);
-            color: var(--secondary-color);
+        .kakao-description {
+            font-size: 16px;
+            color: var(--dark-gray);
+            margin: 15px 0;
         }
 
         /* 반응형 디자인 */
@@ -392,8 +340,9 @@
                 padding: 15px;
             }
 
-            .form-group input {
+            .kakao-link {
                 font-size: 16px;
+                padding: 16px;
             }
         }
 
@@ -419,6 +368,18 @@
         .roadmap-step-title {
             font-weight: 600;
             margin-bottom: 5px;
+        }
+
+        .copy-success {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: none;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -619,10 +580,33 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="question-container" data-question="10">
+                    <h2 class="question-title">고객 유입에서 막히는 단계는 어디라고 생각하시나요?</h2>
+                    <div class="answer-options">
+                        <div class="answer-option" data-question="10" data-answer="A" data-score="0" data-desc="콘텐츠 기획/제작 단계">
+                            콘텐츠 기획/제작 단계
+                        </div>
+                        <div class="answer-option" data-question="10" data-answer="B" data-score="0" data-desc="검색 노출 단계">
+                            검색 노출 단계
+                        </div>
+                        <div class="answer-option" data-question="10" data-answer="C" data-score="0" data-desc="SNS 채널관리">
+                            SNS 채널관리
+                        </div>
+                        <div class="answer-option" data-question="10" data-answer="D" data-score="0" data-desc="상담/고객 전환 단계">
+                            상담/고객 전환 단계
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- 결과 페이지 -->
             <div id="resultContainer" class="result-container">
+                <div class="share-section">
+                    <h3>🔗 다른 사람에게도 테스트 링크 전달하기</h3>
+                    <button class="share-button" onclick="copyLink()">링크 복사하기</button>
+                </div>
+
                 <h2 class="result-title">🎯 진단 결과 발표!</h2>
                 
                 <div class="result-chart-container">
@@ -645,64 +629,28 @@
                 </div>
 
                 <div class="lead-generation-section">
-                    <h3>🎁 더 자세한 실행 방법이 궁금하다면?</h3>
+                    <h3>🎁 1% 전문직의 AI마케팅 시크릿 PDF 받기</h3>
                     
-                    <div class="ebook-preview">
-                        <p><strong>"1%전문직의 AI 마케팅 시크릿"</strong> 전자책에서</p>
-                        <ul>
-                            <li>✅ 구체적인 AI 도구 사용법</li>
-                            <li>✅ 단계별 실행 가이드</li>  
-                            <li>✅ 실제 성공 사례 분석</li>
-                            <li>✅ 바로 쓸 수 있는 템플릿 제공</li>
-                        </ul>
-                    </div>
-
-                    <form id="leadForm">
-                        <div class="form-group">
-                            <label for="name">성함*</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">이메일*</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="profession">전문직종*</label>
-                            <input type="text" id="profession" name="profession" required 
-                                   placeholder="예: 변호사, 의사, 세무사, 회계사 등">
-                            <small>예시: 변호사, 의사, 세무사, 회계사, 건축사, 약사, 한의사, 치과의사 등</small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="location">지역*</label>
-                            <input type="text" id="location" name="location" required 
-                                   placeholder="예: 서울시 강남구">
-                        </div>
-
-                        <button type="submit" class="main-cta-button">
-                            전자책 무료 받기 + 전문가 커뮤니티 참여
-                        </button>
-                    </form>
-
-                    <div class="message success-message" id="successMessage"></div>
-                    <div class="message error-message" id="errorMessage"></div>
-                    <div class="message loading-message" id="loadingMessage">처리 중입니다...</div>
+                    <a href="https://open.kakao.com/o/gYQm0mQh" class="kakao-link" target="_blank">
+                        카톡방에 입장해서 공지를 확인해주세요
+                    </a>
+                    
+                    <p class="kakao-description">
+                        전문가들과 함께 AI 마케팅 노하우를 나누고<br>
+                        최신 정보와 실전 팁을 받아보세요!
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="copy-success" id="copySuccess">링크가 복사되었습니다!</div>
 
 <script>
 // 전역 변수
 let currentQuestion = 1;
 let answers = [];
 let results = {};
-
-// 구글 시트 URL (실제 사용시 교체 필요)
-const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-const KAKAO_CHANNEL_URL = 'http://pf.kakao.com/_your_channel_id/chat';
 
 // DOM이 로드된 후 이벤트 리스너 등록
 document.addEventListener('DOMContentLoaded', function() {
@@ -728,10 +676,33 @@ document.addEventListener('DOMContentLoaded', function() {
             selectAnswer(questionNum, answer, score, desc);
         });
     });
-    
-    // 폼 제출 이벤트 리스너
-    document.getElementById('leadForm').addEventListener('submit', handleFormSubmit);
 });
+
+// 링크 복사 함수
+function copyLink() {
+    const url = 'https://pro-lime-iota.vercel.app/';
+    navigator.clipboard.writeText(url).then(function() {
+        const copySuccess = document.getElementById('copySuccess');
+        copySuccess.style.display = 'block';
+        setTimeout(() => {
+            copySuccess.style.display = 'none';
+        }, 2000);
+    }).catch(function() {
+        // fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        const copySuccess = document.getElementById('copySuccess');
+        copySuccess.style.display = 'block';
+        setTimeout(() => {
+            copySuccess.style.display = 'none';
+        }, 2000);
+    });
+}
 
 // 참여자 수 카운트업 애니메이션
 function animateParticipantCount() {
@@ -807,7 +778,7 @@ function nextQuestion() {
 
     currentQuestion++;
 
-    if (currentQuestion <= 9) {
+    if (currentQuestion <= 10) {
         const nextContainer = document.querySelector(`[data-question="${currentQuestion}"]`);
         if (nextContainer) {
             nextContainer.classList.add('active');
@@ -822,7 +793,7 @@ function nextQuestion() {
 
 // 진행률 업데이트
 function updateProgress() {
-    const progress = (currentQuestion / 9) * 100;
+    const progress = (currentQuestion / 10) * 100;
     const progressFill = document.getElementById('progressFill');
     if (progressFill) {
         progressFill.style.width = progress + '%';
@@ -988,6 +959,7 @@ function setUserTypeContent(userType) {
 function setImprovementPoints() {
     const q5Answer = answers[4]?.description || '';
     const q6Answer = answers[5]?.description || '';
+    const q10Answer = answers[9]?.description || '';
     
     const improvementMap = {
         '뭘 해야 할지 모르겠다': ['AI 도구로 키워드 조사부터 시작', '블로그 글 작성 자동화', '체계적인 콘텐츠 계획 수립'],
@@ -1003,6 +975,13 @@ function setImprovementPoints() {
         '여러 곳에 올리고 관리하기': ['원클릭 다중 플랫폼 배포', '예약 발행으로 자동화', '통합 분석 대시보드 구축']
     };
 
+    const blockingMap = {
+        '콘텐츠 기획/제작 단계': ['AI로 콘텐츠 아이디어 3배 증가', '전문성 담은 글쓰기 자동화', '영상 제작도 AI로 간단하게'],
+        '검색 노출 단계': ['SEO 최적화 글쓰기 시스템', '키워드 분석 자동화', '검색 1페이지 진입률 5배 증가'],
+        'SNS 채널관리': ['멀티 플랫폼 자동 배포', '최적 시간대 자동 발행', '댓글 관리 AI 어시스턴트'],
+        '상담/고객 전환 단계': ['자동 상담 예약 시스템', '고객 맞춤 제안서 생성', '전환율 3배 개선 가능']
+    };
+
     let improvements = [];
     
     // Q5 기반 개선 포인트
@@ -1013,6 +992,11 @@ function setImprovementPoints() {
     // Q6 기반 개선 포인트
     if (contentMap[q6Answer] && improvements.length < 5) {
         improvements.push(...contentMap[q6Answer].slice(0, 5 - improvements.length));
+    }
+    
+    // Q10 기반 개선 포인트
+    if (blockingMap[q10Answer] && improvements.length < 5) {
+        improvements.push(...blockingMap[q10Answer].slice(0, 5 - improvements.length));
     }
     
     // 기본 개선 포인트
@@ -1039,24 +1023,24 @@ function setImprovementPoints() {
 function setPersonalRoadmap() {
     const roadmapData = {
         "숨은고수형": {
-            step1: { title: "1순위: AI 블로그 글쓰기", desc: "전문성을 담은 콘텐츠로 검색 노출 시작" },
-            step2: { title: "2순위: 소셜미디어 자동화", desc: "여러 플랫폼 동시 운영으로 인지도 확산" },
-            step3: { title: "3순위: 고객 유입 시스템", desc: "바이브 코딩으로 자동 상담 유도" }
+            step1: { title: "1단계: AI 블로그 글쓰기 시작 (1-2주)", desc: "주 2회 전문성 담은 콘텐츠로 월 100명 → 500명 유입 증가" },
+            step2: { title: "2단계: 소셜미디어 자동화 (3-4주)", desc: "5개 플랫폼 동시 운영으로 인지도 10배 확산, 상담 문의 월 5건 → 25건" },
+            step3: { title: "3단계: 고객 유입 시스템 완성 (2개월)", desc: "자동 상담 예약으로 전환율 30% 개선, 월 매출 200만원 증가" }
         },
         "비효율투입형": {
-            step1: { title: "1순위: 콘텐츠 제작 자동화", desc: "현재 시간의 1/10로 같은 결과 달성" },
-            step2: { title: "2순위: 배포 시스템 최적화", desc: "원클릭으로 모든 채널 관리" },
-            step3: { title: "3순위: 성과 측정 시스템", desc: "데이터 기반 전략 수정" }
+            step1: { title: "1단계: 콘텐츠 제작 자동화 (1-2주)", desc: "현재 2시간 → 20분으로 단축, 품질은 2배 향상" },
+            step2: { title: "2단계: 배포 시스템 최적화 (3주)", desc: "원클릭으로 10개 채널 관리, 관리 시간 80% 절약" },
+            step3: { title: "3단계: 성과 측정 시스템 구축 (1개월)", desc: "데이터 기반 전략으로 ROI 300% 개선" }
         },
         "부분성과형": {
-            step1: { title: "1순위: 기존 콘텐츠 체계화", desc: "산발적 활동을 전략적으로 정리" },
-            step2: { title: "2순위: AI 도구 도입", desc: "품질과 양을 동시에 개선" },
-            step3: { title: "3순위: 브랜딩 강화", desc: "일관된 메시지로 신뢰도 구축" }
+            step1: { title: "1단계: 기존 콘텐츠 체계화 (2주)", desc: "산발적 활동을 전략적으로 정리하여 효과 3배 증대" },
+            step2: { title: "2단계: AI 도구 본격 도입 (3-4주)", desc: "품질과 양 동시 개선으로 업계 Top 5 진입" },
+            step3: { title: "3단계: 브랜딩 강화 완성 (2개월)", desc: "일관된 메시지로 신뢰도 구축, 프리미엄 가격 책정 가능" }
         },
         "AI준비완료형": {
-            step1: { title: "1순위: 고급 AI 활용", desc: "차별화된 콘텐츠로 경쟁우위 확보" },
-            step2: { title: "2순위: 자동화 시스템 고도화", desc: "완전 자동 운영 시스템 구축" },
-            step3: { title: "3순위: 업계 리더십 구축", desc: "사고 리더로서의 위치 확립" }
+            step1: { title: "1단계: 고급 AI 활용 시작 (1주)", desc: "차별화된 콘텐츠로 경쟁우위 확보, 업계 리더 포지셔닝" },
+            step2: { title: "2단계: 자동화 시스템 고도화 (2-3주)", desc: "완전 자동 운영으로 시간 투입 없이 지속 성장" },
+            step3: { title: "3단계: 업계 리더십 구축 (1개월)", desc: "사고 리더로서 위치 확립, 강연/컨설팅 기회 월 10건 이상" }
         }
     };
 
@@ -1079,131 +1063,6 @@ function setPersonalRoadmap() {
             </div>
         `;
     }
-}
-
-// 폼 제출 처리
-async function handleFormSubmit(e) {
-    e.preventDefault();
-    
-    if (!validateForm()) return;
-    
-    const formData = new FormData(e.target);
-    const leadData = Object.fromEntries(formData.entries());
-    
-    // 진단 결과 데이터 추가
-    leadData.currentRate = results.currentRate;
-    leadData.expectedRate = results.expectedRate;
-    leadData.userType = results.userType;
-    leadData.improvement = results.improvement;
-    leadData.timestamp = new Date().toISOString();
-    
-    // 답변 데이터 추가
-    answers.forEach((answer, index) => {
-        leadData[`q${index + 1}_answer`] = answer.description;
-    });
-    
-    showLoading();
-    
-    const success = await submitToGoogleSheet(leadData);
-    
-    if (success) {
-        showSuccessMessage('전자책 발송 준비가 완료되었습니다! 곧 전문가 커뮤니티로 안내해드릴게요.');
-        
-        setTimeout(() => {
-            window.location.href = KAKAO_CHANNEL_URL;
-        }, 2000);
-    } else {
-        showErrorMessage('잠시 문제가 발생했습니다. 다시 시도해주세요.');
-    }
-}
-
-// 구글 시트 전송
-async function submitToGoogleSheet(data) {
-    try {
-        const response = await fetch(GOOGLE_SHEET_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        });
-        
-        return true;
-    } catch (error) {
-        console.error('Error submitting to Google Sheet:', error);
-        return false;
-    }
-}
-
-// 폼 유효성 검사
-function validateForm() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const profession = document.getElementById('profession').value.trim();
-    const location = document.getElementById('location').value.trim();
-    
-    if (name.length < 2) {
-        showErrorMessage('성함을 정확히 입력해주세요.');
-        return false;
-    }
-    
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        showErrorMessage('이메일을 정확히 입력해주세요.');
-        return false;
-    }
-    
-    if (profession.length < 2 || profession.length > 20) {
-        showErrorMessage('전문직종을 정확히 입력해주세요. (2-20자)');
-        return false;
-    }
-    
-    if (location.length < 2) {
-        showErrorMessage('지역을 정확히 입력해주세요.');
-        return false;
-    }
-    
-    return true;
-}
-
-// 메시지 표시 함수들
-function showLoading() {
-    hideAllMessages();
-    const loadingMsg = document.getElementById('loadingMessage');
-    if (loadingMsg) loadingMsg.style.display = 'block';
-    
-    const submitBtn = document.querySelector('.main-cta-button');
-    if (submitBtn) submitBtn.disabled = true;
-}
-
-function showSuccessMessage(message) {
-    hideAllMessages();
-    const successMsg = document.getElementById('successMessage');
-    if (successMsg) {
-        successMsg.textContent = message;
-        successMsg.style.display = 'block';
-    }
-}
-
-function showErrorMessage(message) {
-    hideAllMessages();
-    const errorMsg = document.getElementById('errorMessage');
-    if (errorMsg) {
-        errorMsg.textContent = message;
-        errorMsg.style.display = 'block';
-    }
-    
-    const submitBtn = document.querySelector('.main-cta-button');
-    if (submitBtn) submitBtn.disabled = false;
-}
-
-function hideAllMessages() {
-    const messages = ['loadingMessage', 'successMessage', 'errorMessage'];
-    messages.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) element.style.display = 'none';
-    });
 }
 
 // 반응형 차트 리사이즈
